@@ -1,7 +1,11 @@
 import telebot
 import re
+import os
+from dotenv import load_dotenv
 
-BOT_TOKEN = '8195052928:AAHlGmxPSUOBvcyKEyY5eDblm7UYPIWHoAY'  # 👈 Replace with your Telegram Bot Token
+# 🔐 Load bot token from .env file
+load_dotenv()
+BOT_TOKEN = os.getenv('BOT_TOKEN')
 bot = telebot.TeleBot(BOT_TOKEN)
 
 def extract_video_id(url):
@@ -27,3 +31,4 @@ def send_thumbnail(msg):
 
 print("🤖 Bot is running...")
 bot.infinity_polling()
+
